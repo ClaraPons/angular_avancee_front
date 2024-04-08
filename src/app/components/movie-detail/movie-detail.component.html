@@ -1,0 +1,39 @@
+<div *ngIf="movie" class="container" style="max-width: 950px" >
+    <h1 class="text-center m-5">{{movie.movie_name}}</h1>
+    <img src="https://picsum.photos/600/220?random={{movie.movie_id}}" class="card-img-top shadow-lg rounded boder-gray" alt="...">
+    <span class="badge text-bg-dark mt-3"> {{movie.movie_lang}} </span>
+    <span class="badge text-bg-dark mx-3"> {{movie.movie_length}} min</span>
+    <span class="badge text-bg-dark"> {{movie.release_date | date}} </span>
+    <p class="card-text my-4 text-justify"><strong>Synopsis</strong> : Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+    
+    
+    <hr class="hr" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Rôle</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{director.director_id}}</td>
+                <td *ngIf="director">Réalisateur-trice</td>
+                <td>{{director.first_name}}</td>
+                <td>{{director.last_name}}</td>
+            </tr>
+            <tr *ngFor="let actor of actors" scope="row">
+                <td>{{actor.actor_id}}</td>
+                <td *ngIf="actor">Acteur-trice</td>
+                <td>{{actor.first_name}}</td>
+                <td>{{actor.last_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-end">
+        <button type="button" class="btn btn-outline-primary btn-sm mt-4" (click)="goBack()">Retour au menu</button>
+        <button type="button" class="btn btn-outline-primary btn-sm mx-3 mt-4">Mettre à jour</button>
+    </div>
+</div>
